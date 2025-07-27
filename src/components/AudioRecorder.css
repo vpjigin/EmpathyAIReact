@@ -1,0 +1,174 @@
+.audio-recorder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+  color: white;
+}
+
+.recording-status {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.recording-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.pulse-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ff4757;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.pulse-dot.paused {
+  background-color: #ffa726;
+  animation: pausedPulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pausedPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.recording-controls {
+  margin: 1rem 0;
+}
+
+.recording-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.record-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+  justify-content: center;
+}
+
+.record-button.start {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+}
+
+.record-button.start:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.record-button.pause {
+  background: linear-gradient(135deg, #ffa726, #ff9800);
+  color: white;
+}
+
+.record-button.pause:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 167, 38, 0.4);
+}
+
+.record-button.resume {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+}
+
+.record-button.resume:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
+}
+
+.record-button.stop {
+  background: linear-gradient(135deg, #ff4757, #c44569);
+  color: white;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(255, 71, 87, 0.8);
+  }
+}
+
+.record-button:disabled,
+.record-button.processing {
+  background: linear-gradient(135deg, #9ca3af, #6b7280) !important;
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none !important;
+  color: #f3f4f6 !important;
+}
+
+.record-button.processing {
+  animation: processingPulse 1.5s infinite;
+}
+
+@keyframes processingPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(156, 163, 175, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(156, 163, 175, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(156, 163, 175, 0);
+  }
+}
+
+.recording-hint {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin: 0.8rem 0 0 0;
+  max-width: 280px;
+  line-height: 1.4;
+}
