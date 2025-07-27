@@ -112,14 +112,6 @@ The application expects a server that supports both HTTP and WebSocket connectio
 - Output: Any web-compatible audio format (MP3, WAV, WebM)
 - WebSocket: Supports binary audio data streaming
 
-## 🆘 Crisis Resources Integration
-
-The application prominently displays:
-
-- **Crisis Text Line**: Text HOME to 741741
-- **National Suicide Prevention Lifeline**: 988
-- **Emergency Services**: 911
-
 ## 🚀 Available Scripts
 
 ### `npm start`
